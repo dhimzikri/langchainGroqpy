@@ -15,11 +15,11 @@ def chat_with_csv(df,query):
     load_dotenv() 
 
     # Function to initialize conversation chain with GROQ language model
-    #groq_api_key = os.environ['GROQ_API_KEY']
+    groq_api_key = os.environ['GROQ_API_KEY']
 
     # Initializing GROQ chat with provided API key, model name, and settings
     llm = ChatGroq(
-    groq_api_key="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", model_name="llama3-70b-8192",
+    groq_api_key=groq_api_key, model_name="llama3-70b-8192",
     temperature=0.6)
     # Initialize SmartDataframe with DataFrame and LLM configuration
     pandas_ai = SmartDataframe(df, config={"llm": llm})
